@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+    echo "Usage: cargo-run <bin_name>"
+    exit 1
+fi
+
+RUSTFLAGS="-Awarnings" RUST_BACKTRACE=1 cargo run --bin "$1" --release
