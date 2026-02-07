@@ -17,3 +17,10 @@ vim.keymap.set(
   end,
   { silent = true, buffer = bufnr, desc = "Full error" }
 )
+vim.diagnostic.config({
+  virtual_text = false,
+  virtual_lines = {
+    only_current_line = true, -- show only for the cursor line
+  },
+})
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1a1a1a" })
