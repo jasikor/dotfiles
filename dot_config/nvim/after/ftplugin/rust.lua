@@ -23,4 +23,3 @@ vim.diagnostic.config({
     only_current_line = true, -- show only for the cursor line
   },
 })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1a1a1a" })
