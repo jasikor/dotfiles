@@ -1,7 +1,7 @@
 return {
   {
-    dir = "/home/ja/Work/jsbandw",
-    -- "jasikor/jsbandw",
+    -- dir = "/home/ja/Work/jsbandw",
+    "jasikor/jsbandw",
     lazy = false,
     priority = 1000,
   },
