@@ -24,7 +24,7 @@ vim.diagnostic.config({
   },
 })
 
--- Auto-fold use statements
+-- Auto-fold use statements ss.
 local function fold_use_statements()
   local buf = vim.api.nvim_get_current_buf()
   local ok, parser = pcall(vim.treesitter.get_parser, buf, "rust")
