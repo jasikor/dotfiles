@@ -3,7 +3,7 @@
 set -euo pipefail
 
 omarchy-install-terminal kitty
-sudo pacman -S --needed --noconfirm ttf-iosevka-nerd bitwarden yazi syncthing
+sudo pacman -S --needed --noconfirm ttf-iosevka-nerd bitwarden yazi syncthing git-delta
 rustup default stable
 rustup toolchain install nightly
 rustup component add rust-analyzer rust-src
