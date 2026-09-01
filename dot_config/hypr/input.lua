@@ -4,44 +4,44 @@
 -- Keyboard layout and options.
 -- See https://wiki.hypr.land/Configuring/Basics/Variables/#input
 hl.config({
-  input = {
-    -- Use multiple keyboard layouts and switch between them with Left Alt + Right Alt.
-    kb_layout = "pl",
-    kb_options = "compose:caps,grp:grp:alt_altgr_toggle",
+	input = {
+		-- Use multiple keyboard layouts and switch between them with Left Alt + Right Alt.
+		kb_layout = "pl",
+		kb_options = "compose:caps,grp:grp:alt_altgr_toggle",
 
-    -- Use a specific keyboard variant if needed (e.g. intl for international keyboards).
-    kb_variant = "intl",
+		-- Use a specific keyboard variant if needed (e.g. intl for international keyboards).
+		kb_variant = "intl",
 
-    -- Change speed of keyboard repeat.
-    repeat_rate = 40,
-    repeat_delay = 600,
+		-- Change speed of keyboard repeat.
+		repeat_rate = 40,
+		repeat_delay = 600,
 
-    -- Start with numlock on by default.
-    numlock_by_default = true,
+		-- Start with numlock on by default.
+		numlock_by_default = true,
 
-    -- Increase sensitivity for mouse/trackpad (default: 0).
-    sensitivity = 0.35,
+		-- Increase sensitivity for mouse/trackpad (default: 0).
+		sensitivity = 0.35,
 
-    -- Turn off mouse acceleration (default: adaptive).
-    accel_profile = "flat",
+		-- Turn off mouse acceleration (default: adaptive).
+		accel_profile = "flat",
 
-    touchpad = {
-      -- Use natural (inverse) scrolling.
-      natural_scroll = true,
+		touchpad = {
+			-- Use natural (inverse) scrolling.
+			natural_scroll = false,
 
-      -- Use two-finger clicks for right-click instead of lower-right corner.
-      clickfinger_behavior = true,
+			-- Use two-finger clicks for right-click instead of lower-right corner.
+			clickfinger_behavior = true,
 
-      -- Control the speed of your scrolling.
-      scroll_factor = 0.4,
+			-- Control the speed of your scrolling.
+			scroll_factor = 0.4,
 
-      -- Enable the touchpad while typing.
-      disable_while_typing = false,
+			-- Enable the touchpad while typing.
+			disable_while_typing = false,
 
-      -- Left-click-and-drag with three fingers.
-      drag_3fg = 1,
-    },
-  },
+			-- Left-click-and-drag with three fingers.
+			drag_3fg = 1,
+		},
+	},
 })
 
 -- App-specific touchpad scroll speeds.
