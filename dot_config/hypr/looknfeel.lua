@@ -29,3 +29,6 @@ hl.config({
   },
 
 })
+
+-- Override Omarchy's default window translucency (0.985/0.96) with full opacity.
+o.window({ tag = "default-opacity" }, { opacity = "1 1" })
