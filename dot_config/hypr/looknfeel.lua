@@ -9,8 +9,8 @@ hl.config({
     layout = "master",
 
     col = {
-      -- Focused window: white at the top fading to black at the bottom
-      active_border = { colors = { "rgba(000000ff)", "rgba(ffffffff)" }, angle = 270 },
+      -- Focused window: amber at the top fading to black at the bottom
+      active_border = { colors = { "rgba(000000ff)", "rgba(ffbf00ff)" }, angle = 270 },
       -- Unfocused windows: solid black border (nothing shows through)
       inactive_border = "rgba(000000ff)",
     },
@@ -30,7 +30,7 @@ hl.config({
   -- https://wiki.hypr.land/Configuring/Variables/#decoration
   decoration = {
     -- Use round window corners
-    rounding = 0,
+    rounding = 10,
     active_opacity = 1.0,
     inactive_opacity = 1.0,
   },
