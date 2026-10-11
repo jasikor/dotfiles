@@ -2,6 +2,10 @@
 o.bind("SUPER + m", "Add master window", hl.dsp.layout("addmaster"))
 o.bind("SUPER + SHIFT + m", "Remove master window", hl.dsp.layout("removemaster"))
 
+-- Move toggle floating/tiling from SUPER+T to SUPER+SHIFT+T
+hl.unbind("SUPER + T") -- was: Toggle window floating/tiling (omarchy default)
+o.bind("SUPER + SHIFT + T", "Toggle window floating/tiling", hl.dsp.window.float({ action = "toggle" }))
+
 -- Toggle active workspace between master and dwindle layouts
 hl.unbind("SUPER + L") -- was: Toggle workspace layout (omarchy default)
 local function toggle_layout()
