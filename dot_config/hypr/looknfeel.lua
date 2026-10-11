@@ -7,6 +7,11 @@ hl.config({
 
     -- Use master layout instead of dwindle
     layout = "master",
+
+    col = {
+      -- Invisible border on unfocused windows
+      inactive_border = "rgba(00000000)",
+    },
   },
 
   animations = {
@@ -26,6 +31,11 @@ hl.config({
     rounding = 0,
     active_opacity = 1.0,
     inactive_opacity = 1.0,
+  },
+
+  misc = {
+    -- Pure black compositor clear color (default is Hyprland's 0x111111).
+    background_color = 0xff000000,
   },
 
 })
