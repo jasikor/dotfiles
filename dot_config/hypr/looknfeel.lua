@@ -9,8 +9,10 @@ hl.config({
     layout = "master",
 
     col = {
-      -- Invisible border on unfocused windows
-      inactive_border = "rgba(00000000)",
+      -- Focused window: white at the top fading to black at the bottom
+      active_border = { colors = { "rgba(000000ff)", "rgba(ffffffff)" }, angle = 270 },
+      -- Unfocused windows: solid black border (nothing shows through)
+      inactive_border = "rgba(000000ff)",
     },
   },
 
