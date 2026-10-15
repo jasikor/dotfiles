@@ -16,7 +16,8 @@ end
 o.bind("SUPER + L", "Toggle layout master/dwindle", toggle_layout)
 
 -- Unbind defaults
-hl.unbind("SUPER + SHIFT + SPACE")
+-- SUPER + SHIFT + SPACE is intentionally kept: Omarchy default "Toggle top bar"
+-- (omarchy toggle bar)
 hl.unbind("SUPER + P")
 hl.unbind("SUPER + G")
 hl.unbind("SUPER + J")
