@@ -1,0 +1,3 @@
+#!/bin/sh
+# Omarchy post-update hook: refresh differ after `omarchy update`.
+exec "$HOME/.local/bin/differ-update"

@@ -1,0 +1,41 @@
+#!/bin/sh
+# Install/update differ from the latest main. Idempotent: rebuilds only when the
+# upstream commit changes, so it is a fast no-op on most runs. Safe to call from
+# `chezmoi apply` and from the Omarchy post-update hook.
+
+set -eu
+
+REPO="https://github.com/jasikor/differ.git"   # HTTPS: work without an SSH key
+BRANCH="main"
+SRC="${XDG_DATA_HOME:-$HOME/.local/share}/differ"
+MARK="${XDG_STATE_HOME:-$HOME/.local/state}/differ/commit"
+BIN="$HOME/.local/bin/differ"
+
+# Non-interactive shells may not have rustup's shims on PATH.
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Never break an enclosing apply/update: missing prerequisites are no-ops.
+command -v cargo >/dev/null 2>&1 || { echo "differ-update: cargo not found, skipping" >&2; exit 0; }
+command -v git   >/dev/null 2>&1 || { echo "differ-update: git not found, skipping"   >&2; exit 0; }
+
+remote=$(git ls-remote "$REPO" "refs/heads/$BRANCH" 2>/dev/null | cut -f1) || true
+[ -n "${remote:-}" ] || { echo "differ-update: cannot reach $REPO (offline?), skipping" >&2; exit 0; }
+
+# Already current, and the binary is still there.
+if [ -x "$BIN" ] && [ -f "$MARK" ] && [ "$(cat "$MARK")" = "$remote" ]; then
+  exit 0
+fi
+
+mkdir -p "$(dirname "$SRC")" "$(dirname "$MARK")" "$(dirname "$BIN")"
+if [ -d "$SRC/.git" ]; then
+  git -C "$SRC" fetch --quiet origin "$BRANCH"
+else
+  git clone --quiet --branch "$BRANCH" "$REPO" "$SRC"
+fi
+git -C "$SRC" checkout --quiet --detach "$remote"
+
+cargo build --locked --release --manifest-path "$SRC/Cargo.toml"
+install -m 0755 "$SRC/target/release/differ" "$BIN"
+
+printf '%s\n' "$remote" > "$MARK"
+printf 'differ: installed %.12s\n' "$remote"
